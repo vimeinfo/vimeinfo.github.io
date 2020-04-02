@@ -113,7 +113,7 @@ const guildTag = {
 };
 
 const uri = "https://api.vimeworld.ru";
-const uriSite = "https://vimeinfo.github.io";
+const uriSite = "https://vi.lvsh.tk";
 const uriSkin = "https://skin.vimeworld.ru";
 
 const userURL = (name) => encodeURI(`${uriSite}/index.html#${name}`);
