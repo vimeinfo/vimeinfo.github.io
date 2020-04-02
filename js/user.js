@@ -147,8 +147,11 @@ if(document.URL.includes("#")) {
                 ? `Состоит в гильдии: <a href="${guildURL(userData[0].guild.name)}" target="_blank"><span style="color: #${guildTag[userData[0].guild.color]};"><b>${(userData[0].guild.tag !== null) ? `[${userData[0].guild.tag}] ` : ''}${userData[0].guild.name}</b></span></a>`
                 : 'Не состоит в гильдии';
 
-            let guildAvatar = `<img alt="Аватарка гильдии ${userData[0].guild.name}" width="140" height="140" src="${encodeURI(userData[0].guild.avatar_url)}">`;
-            let userAvatar = `<img alt="Голова игрока ${userData[0].username}" width="140" height="140" src="${getSkin(userData[0].username)}">`;
+            let guildAvatar = (userData[0].guild !== null)
+	    		? `<img alt="Аватарка гильдии ${userData[0].guild.name}" width="140" height="140" src="${encodeURI(userData[0].guild.avatar_url)}">`
+	    		: '';
+		
+			let userAvatar = `<img alt="Голова игрока ${userData[0].username}" width="140" height="140" src="${getSkin(userData[0].username)}">`;
 
             return formInfo.innerHTML = `<a href="${userURL(userData[0].username)}" target="_blank"><span style="color: ${r.color};"><b>[${r.name}] ${userData[0].username}</b></span></a>`
                 +`<hr>ID аккаунта: <b>${userData[0].id}</b>`
