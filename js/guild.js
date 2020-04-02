@@ -4,7 +4,7 @@ const forms = {
         position: 'top-end',
         type: "error",
         title: "Ошибка!",
-        html: "Вы не ввели никнейм игрока, или введённый никнейм некорректен.",
+        html: "Вы не ввели имя гильдии.",
         showConfirmButton: true,
         timer: 15000
     },
@@ -121,12 +121,9 @@ const guildURL = (name) => encodeURI(`${uriSite}/guild.html#${name}`);
 const searchGuild = (name) => encodeURI(`${uri}/guild/get?name=${name}`);
 const userAvatar = (name) => encodeURI(`${uriSkin}/helm/${name}.png`);
 
-// https://github.com/vimestats/api/blob/master/app/src/utils/constants.ts#L4 :)
-const usernameRegex = /[a-zA-Z0-9_]{1,16}$/;
-
 if(document.URL.includes("#")) {
     let guildname = document.URL.replace(uriSite, '').replace('/guild.html#', '');
-    if(!guildname || !usernameRegex.test(guildname)) Swal.fire(forms.invalid);
+    if(!guildname) Swal.fire(forms.invalid);
     else
     $.ajax({
         url: searchGuild(guildname),
@@ -173,7 +170,7 @@ document.body.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let guildname = document.getElementById("guildname").value;
-    if(!guildname || !usernameRegex.test(guildname)) return Swal.fire(forms.invalid);
+    if(!guildname) return Swal.fire(forms.invalid);
 
     $.ajax({
         url: searchGuild(guildname),
