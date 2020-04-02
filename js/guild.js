@@ -126,8 +126,8 @@ const usernameRegex = /[a-zA-Z0-9_]{1,16}$/;
 
 if(document.URL.includes("#")) {
     let guildname = document.URL.replace(uriSite, '').replace('/guild.html#', '');
-    if(!guildname || !usernameRegex.test(guildname)) return Swal.fire(forms.invalid);
-    
+    if(!guildname || !usernameRegex.test(guildname)) Swal.fire(forms.invalid);
+    else
     $.ajax({
         url: searchGuild(guildname),
         type: "GET",
