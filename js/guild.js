@@ -1,7 +1,7 @@
 // jshint esversion: 6
 const forms = {
     'invalid': {
-        position: 'top-end',
+        position: 'center',
         type: "error",
         title: "Ошибка!",
         html: "Вы не ввели имя гильдии.",
