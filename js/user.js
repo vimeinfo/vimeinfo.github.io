@@ -126,8 +126,8 @@ const usernameRegex = /[a-zA-Z0-9_]{1,16}$/;
 
 if(document.URL.includes("#")) {
     let username = document.URL.replace(uriSite, '').replace('/#', '').replace('/index.html#', '');
-    if(!username || !usernameRegex.test(username)) return Swal.fire(forms.invalid);
-    
+    if(!username || !usernameRegex.test(username)) Swal.fire(forms.invalid);
+    else
     $.ajax({
         url: searchUser(username),
         type: "GET",
