@@ -13,4 +13,4 @@
 ![Image #2](https://i.imgur.com/fpY0MOA.png "VimeTop :AXAXA:")
 
 ## Как воспользоваться?
-[Нажмите на этот текст, который вы сейчас читаете.](https://vimeinfo.github.io)
+[Нажмите на этот текст, который вы сейчас читаете.](https://vi.lvsh.tk)
