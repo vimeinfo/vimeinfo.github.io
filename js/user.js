@@ -126,8 +126,8 @@ const usernameRegex = /[a-zA-Z0-9_]{1,16}$/;
 
 if(document.URL.includes("#")) {
     let username = document.URL.replace(uriSite, '').replace('/#', '').replace('/index.html#', '');
-    if(!username || !usernameRegex.test(username)) Swal.fire(forms.invalid);
-    else
+    if(!username || !usernameRegex.test(username)) return Swal.fire(forms.invalid);
+
     $.ajax({
         url: searchUser(username),
         type: "GET",
@@ -135,6 +135,7 @@ if(document.URL.includes("#")) {
         cache: false,
         success: (userData) => {
             if(userData.error) return Swal.fire(forms.other(userData.error.message));
+			if(!userData[0]) return Swal.fire(forms.other("Данного пользователя никогда не было на сервере."));
             const formInfo = document.getElementById("userInfo");
 
             let r = rank(userData[0].rank);
@@ -177,6 +178,7 @@ document.body.addEventListener("submit", (e) => {
         cache: false,
         success: (userData) => {
             if(userData.error) return Swal.fire(forms.other(userData.error.message));
+			if(!userData[0]) return Swal.fire(forms.other("Данного пользователя никогда не было на сервере."));
             const formInfo = document.getElementById("userInfo");
 
             let r = rank(userData[0].rank);
