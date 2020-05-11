@@ -123,8 +123,8 @@ const userAvatar = (name) => encodeURI(`${uriSkin}/helm/${name}.png`);
 
 if(document.URL.includes("#")) {
     let guildname = document.URL.replace(uriSite, '').replace('/guild.html#', '');
-    if(!guildname) return Swal.fire(forms.invalid);
-	
+    if(!guildname) Swal.fire(forms.invalid);
+	else
     $.ajax({
         url: searchGuild(guildname),
         type: "GET",
